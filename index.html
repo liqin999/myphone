@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta content="target-densitydpi=device-dpi,width=640" name="viewport">
+    <style>
+        html,body{font-size:100px;padding: 0;margin: 0;}
+        .box{
+            font-size: 0.2rem;
+            color: #ffffff;
+            width: 6.4rem;height: 0.2rem;background: red;
+            line-height: 0.2rem;
+        }
+        .box2>div{
+            width: 1.6rem;
+            height: 1.6rem;
+            float: left;
+        }
+        .box2>div.bg1{
+            background-color: firebrick;
+        }
+        .box2>div.bg2{
+            background-color: blue;
+        }
+        .box2>div.bg3{
+            background-color: sandybrown;
+        }
+        .box2>div.bg4{
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        (function (doc, win) {
+            var docEl = doc.documentElement,
+                    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+                    recalc = function () {
+                        var clientWidth = docEl.clientWidth;
+                        if (!clientWidth) return;
+                        if(clientWidth>=640){
+                            docEl.style.fontSize = '100px';
+                        }else{
+                            docEl.style.fontSize = 100 * (clientWidth / 640) + 'px';
+                        }
+                    };
+
+            if (!doc.addEventListener) return;
+            win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+
+        // 手机端适配  实际的像素除以100   在链接上rem
+    </script>
+</head>
+<body>
+<div class="box">
+    <div style="float: left;">靠左</div>
+    <div style="float: right;">靠右</div>
+</div>
+
+<div class="box2">
+    <div class="bg1"></div>
+    <div class="bg2"></div>
+    <div class="bg3"></div>
+    <div class="bg4"></div>
+   
+</div>
+</body>
+<script src="http://apps.bdimg.com/libs/jquery/1.9.0/jquery.js"></script>
+<script>
+    //设计图是640px
+    // 页面布局的实现，设计稿是640  ，书写meta标签 然后元素的大小可以按照普通的px进行布局
+    $(function(){
+
+    })
+</script>
+</html>
